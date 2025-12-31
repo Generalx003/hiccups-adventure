@@ -1543,11 +1543,11 @@ class Game:
         self.setup_2d()
         self.draw_centered_text("MAZE CHALLENGE", self.height - 50, (0.9, 0.8, 0.3))
         self.draw_centered_text("WASD: Move  QE: Up/Down  Mouse: Look  P: Skip", 50, (0.6, 0.6, 0.7))
-        self.draw_centered_text("Find the green crystal!", 80, (0.5, 0.9, 0.5))
+        self.draw_centered_text("Find the green crystal!", 80, (0.5, 0.9,            0.5))
 
         grid_x = int(self.maze_camera_pos[0] // 60)
         grid_y = int(self.maze_camera_pos[1] // 60)
-        if [grid_y, grid_x] == self.maze_exit_pos or self.cheat_mode:
+        if abs(grid_y - self.maze_exit_pos[0]) <= 1 and abs(grid_x - self.maze_exit_pos[1]) <= 1 or self.cheat_mode:
             self.maze_complete = True
             self.draw_centered_text("MAZE COMPLETE! Press SPACE for next stage", self.height // 2, (0.3, 0.9, 0.3))
 
